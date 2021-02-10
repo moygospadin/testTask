@@ -14,9 +14,7 @@ export default (state = initialState, action) => {
     case SET_ORDERS:
       console.log('SET_ORDERS', action.ordersData);
       return {
-        ordersData: action.ordersData.map(
-          (ord) => new Order(ord.id.toString()),
-        ),
+        ordersData: JSON.parse(JSON.stringify(action.ordersData)),
       };
     default:
       return state;

@@ -1,11 +1,28 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
+import {connect} from 'react-redux';
+import {InfoOrderCard} from '../../components';
+import {constStyles} from '../../contstants';
+import {MainScreenStyles as styles} from './styles';
 
-function MainScreen() {
+function MainScreen({ordersData}) {
+  console.log('ordersData', ordersData);
   return (
-    <View>
-      <Text>MainScreen</Text>
+    <View style={constStyles.container}>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={ordersData}
+        renderItem={({item}) => <InfoOrderCard data={item} />}
+        keyExtractor={(item) => item.id.toString()}
+      />
     </View>
   );
 }
-export default MainScreen;
+function mapStateToProps(state) {
+  return {
+    ordersData: state.ordersReducer.ordersData,
+  };
+}
+
+const mapDispatch = {};
+export default connect(mapStateToProps, mapDispatch)(MainScreen);
