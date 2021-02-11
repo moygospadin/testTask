@@ -9,6 +9,9 @@ function MainScreen({ordersData}) {
   console.log('ordersData', ordersData);
   return (
     <View style={constStyles.container}>
+      <Text style={styles.text}>
+        Мои заказы <Text style={styles.numberText}>{ordersData.length}</Text>
+      </Text>
       <FlatList
         showsVerticalScrollIndicator={false}
         data={ordersData}

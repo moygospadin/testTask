@@ -1,9 +1,6 @@
-import {calcFullDateNow} from './date';
-function calcProgressBarWidth(deliveries) {
-  const dateNow = calcFullDateNow();
-
+function calcProgressBarWidth(deliveries, fullDateNow) {
   const res = deliveries.reduce((acc, currVal) => {
-    if (currVal.date > dateNow) {
+    if (currVal.date > fullDateNow) {
       acc -= 100 / deliveries.length;
     }
     return acc;

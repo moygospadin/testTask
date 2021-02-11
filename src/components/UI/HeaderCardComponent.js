@@ -6,7 +6,7 @@ function HeaderCardComponent({data}) {
   const {deliveries, packageName, packageCalories} = data;
   return (
     <View style={styles.container}>
-      <Text style={styles.bigBoldText}>{deliveries.length} ДНЕЙ</Text>
+      <Text style={styles.bigBoldText}>{deliveries.length} дней</Text>
       <View>
         <Text style={styles.grayText}>{packageName} </Text>
         <Text style={styles.smallBoldText}>{packageCalories} </Text>

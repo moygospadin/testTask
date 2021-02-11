@@ -1,5 +1,5 @@
 import React from 'react';
-import {MainScreen, LoginMainScreen} from '../screens';
+import {MainScreen, LoginMainScreen, OneOrderScreen} from '../screens';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {connect} from 'react-redux';
@@ -14,7 +14,10 @@ function AppNavigation({isLogin}) {
         screenOptions={TransitionScreenOptions}
         headerMode="none">
         {isLogin ? (
-          <Stack.Screen name="MainScreen" component={MainScreen} />
+          <>
+            <Stack.Screen name="MainScreen" component={MainScreen} />
+            <Stack.Screen name="OneOrderScreen" component={OneOrderScreen} />
+          </>
         ) : (
           <Stack.Screen name="LoginMainScreen" component={LoginMainScreen} />
         )}

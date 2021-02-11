@@ -1,4 +1,4 @@
-const mounth3Lettter = [
+export const mounth3Lettter = [
   'янв',
   'фев',
   'мрт',
@@ -11,6 +11,15 @@ const mounth3Lettter = [
   'окт',
   'нояб',
   'дек',
+];
+export const weekDays = [
+  'воскресенье',
+  'понедельник',
+  'вторник',
+  'cреду',
+  'четверг',
+  'пятницу',
+  'субботу',
 ];
 
 export function calcFullDateNow() {
@@ -27,11 +36,16 @@ export function calcFullDateNow() {
 }
 
 export function calcDayWithMount(date) {
-  console.log('date', date);
   const d = new Date(date);
   return d.getDate() + ' ' + mounth3Lettter[d.getMonth()];
 }
 
-export function differenceBetweenDates(date1, date2) {
+export function differenceBetweenTwoDates(date1, date2) {
   return (new Date(date2) - new Date(date1)) / (60 * 60 * 24 * 1000);
+}
+
+export function calcDayLeft(deliveries, fullDateNow) {
+  const deliver = deliveries.find((el) => el.date > fullDateNow);
+
+  return deliver ? differenceBetweenTwoDates(fullDateNow, deliver.date) : 0;
 }
